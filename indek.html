@@ -3,200 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denim & Co. - Modern E-Commerce</title>
+    <meta name="description" content="Denim & Co. - Modern denim and streetwear collection.">
+    <title>Denim & Co. | Modern Denim & Streetwear</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#" class="brand" data-page="home" aria-label="Denim and Co. Beranda">
+                DENIM <span>&amp; CO.</span>
+            </a>
 
-    <!-- Header / Navigasi -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">👖 Denim & Co.</div>
-            <nav>
-                <ul>
-                    <li><a href="#" onclick="showPage('home')" class="active">Beranda</a></li>
-                    <li><a href="#" onclick="showPage('catalog')">Koleksi</a></li>
-                    <li><a href="#" onclick="showPage('checkout')">Checkout</a></li>
-                </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="#" class="nav-link active" data-page="home">Beranda</a>
+                <a href="#" class="nav-link" data-page="catalog">Koleksi</a>
+                <a href="#" class="nav-link" data-page="orders">Pesanan</a>
+                <a href="#" class="nav-link" data-page="checkout">Checkout</a>
             </nav>
+
+            <button class="cart-shortcut" id="cartShortcut" aria-label="Buka keranjang">
+                Keranjang <span class="cart-count" id="cartCount">0</span>
+            </button>
         </div>
     </header>
 
-    <main class="container">
-        
-        <!-- ================= HALAMAN BERANDA (Dibuat Lebih Ramai) ================= -->
-        <section id="home" class="page active">
-            <!-- Hero Banner Utama -->
+    <main class="container main-content">
+        <!-- BERANDA -->
+        <section class="page active" id="home">
             <div class="hero">
-                <div class="hero-text">
-                    <h1>Koleksi Denim & Streetwear Premium</h1>
-                    <p>Temukan gaya kasual dan modern terbaik dengan kualitas lokal pilihan.</p>
-                    <button class="cta-button" onclick="showPage('catalog')">Jelajahi Katalog</button>
+                <div class="hero-copy">
+                    <span class="eyebrow">DENIM ESSENTIALS · BALI</span>
+                    <h1>Temukan gaya.<br><span>Jadilah diri sendiri.</span></h1>
+                    <p>Koleksi denim dan streetwear pilihan untuk melengkapi gaya kasual modern setiap hari.</p>
+                    <button class="button button-primary" data-go="catalog">Jelajahi Koleksi</button>
+                </div>
+                <div class="hero-note">
+                    <span>NEW SEASON</span>
+                    <strong>Everyday<br>Denim.</strong>
+                    <small>Designed for your daily style.</small>
                 </div>
             </div>
 
-            <!-- Fitur / Keunggulan Toko (Menambah Keramaian Visual) -->
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🚚</span>
-                    <h3>Pengiriman Cepat</h3>
-                    <p>Melayani pengiriman ke seluruh wilayah Bali dan Indonesia.</p>
+            <section class="benefits" aria-label="Keunggulan toko">
+                <article class="benefit-card">
+                    <span class="benefit-number">01</span>
+                    <h3>Material Pilihan</h3>
+                    <p>Produk pilihan dengan bahan nyaman untuk menemani aktivitas harian.</p>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-number">02</span>
+                    <h3>Gaya Versatile</h3>
+                    <p>Desain kasual yang mudah dipadukan dengan berbagai outfit.</p>
+                </article>
+                <article class="benefit-card">
+                    <span class="benefit-number">03</span>
+                    <h3>Belanja Praktis</h3>
+                    <p>Pilih produk, masukkan keranjang, lalu isi detail pesanan dengan mudah.</p>
+                </article>
+            </section>
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">CURATED FOR YOU</span>
+                    <h2>Produk Pilihan</h2>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">✨</span>
-                    <h3>Kualitas Premium</h3>
-                    <p>Bahan denim pilihan yang awet, tebal, dan nyaman dipakai.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🛡️</span>
-                    <h3>Transaksi Aman</h3>
-                    <p>Proses pemesanan mudah, cepat, dan transparan.</p>
-                </div>
+                <button class="text-button" data-go="catalog">Lihat semua produk →</button>
             </div>
+            <div class="product-grid" id="featuredProducts"></div>
 
-            <!-- Preview Produk Unggulan di Beranda -->
-            <div class="section-title" style="margin-top: 3rem;">
-                <h2>Produk Pilihan Minggu Ini</h2>
-                <p>Model favorit yang paling banyak dicari pelanggan</p>
-            </div>
-
-            <div class="product-grid" style="margin-bottom: 3rem;">
-                <!-- Produk 1 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1543076447-215ad9ba6923?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Classic Blue Denim Jacket</h3>
-                        <p class="price">Rp 249.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Classic Blue Denim Jacket', 249000)">Beli Sekarang</button>
-                    </div>
+            <div class="promo-strip">
+                <div>
+                    <span class="eyebrow">YOUR DAILY UNIFORM</span>
+                    <h2>Simple pieces. Strong identity.</h2>
+                    <p>Temukan item favoritmu dan buat tampilan yang terasa paling personal.</p>
                 </div>
-
-                <!-- Produk 2 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1583290878567-4f6c40e53a06?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Vintage Wash Denim Shorts</h3>
-                        <p class="price">Rp 135.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Vintage Wash Denim Shorts', 135000)">Beli Sekarang</button>
-                    </div>
-                </div>
-
-                <!-- Produk 3 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Slim Fit Black Jeans</h3>
-                        <p class="price">Rp 210.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Slim Fit Black Jeans', 210000)">Beli Sekarang</button>
-                    </div>
-                </div>
+                <button class="button button-light" data-go="catalog">Belanja sekarang</button>
             </div>
         </section>
 
-        <!-- ================= HALAMAN KATALOG PRODUK LENGKAP ================= -->
-        <section id="catalog" class="page">
-            <div class="section-title">
-                <h2>Katalog Produk Lengkap</h2>
-                <p>Pilihan fashion denim terbaik untuk gaya harianmu</p>
+        <!-- KATALOG -->
+        <section class="page" id="catalog">
+            <div class="page-heading">
+                <span class="eyebrow">THE COLLECTION</span>
+                <h1>Katalog Produk</h1>
+                <p>Pilih denim dan streetwear yang sesuai dengan gayamu.</p>
             </div>
-            
-            <div class="product-grid">
-                <!-- Produk 1 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1543076447-215ad9ba6923?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Classic Blue Denim Jacket</h3>
-                        <p class="price">Rp 249.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Classic Blue Denim Jacket', 249000)">Beli Sekarang</button>
-                    </div>
-                </div>
 
-                <!-- Produk 2 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1583290878567-4f6c40e53a06?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Vintage Wash Denim Shorts</h3>
-                        <p class="price">Rp 135.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Vintage Wash Denim Shorts', 135000)">Beli Sekarang</button>
-                    </div>
-                </div>
+            <div class="catalog-toolbar">
+                <label class="search-box">
+                    <span class="sr-only">Cari produk</span>
+                    <input type="search" id="searchInput" placeholder="Cari nama produk...">
+                </label>
+                <label class="filter-box">
+                    <span class="sr-only">Filter kategori</span>
+                    <select id="categoryFilter">
+                        <option value="all">Semua kategori</option>
+                        <option value="Jacket">Jacket</option>
+                        <option value="Shorts">Shorts</option>
+                        <option value="Jeans">Jeans</option>
+                        <option value="Shirt">Shirt</option>
+                        <option value="Vest">Vest</option>
+                    </select>
+                </label>
+                <label class="filter-box">
+                    <span class="sr-only">Urutkan produk</span>
+                    <select id="sortFilter">
+                        <option value="default">Urutan default</option>
+                        <option value="low">Harga terendah</option>
+                        <option value="high">Harga tertinggi</option>
+                        <option value="name">Nama A–Z</option>
+                    </select>
+                </label>
+            </div>
+            <p class="result-count" id="resultCount"></p>
+            <div class="product-grid" id="catalogProducts"></div>
+        </section>
 
-                <!-- Produk 3 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Slim Fit Black Jeans</h3>
-                        <p class="price">Rp 210.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Slim Fit Black Jeans', 210000)">Beli Sekarang</button>
-                    </div>
-                </div>
-
-                <!-- Produk 4 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Distressed Light Blue Jeans</h3>
-                        <p class="price">Rp 275.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Distressed Light Blue Jeans', 275000)">Beli Sekarang</button>
-                    </div>
-                </div>
-
-                <!-- Produk 5 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Oversized Denim Shirt</h3>
-                        <p class="price">Rp 195.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Oversized Denim Shirt', 195000)">Beli Sekarang</button>
-                    </div>
-                </div>
-
-                <!-- Produk 6 -->
-                <div class="product-card">
-                    <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="card-details">
-                        <h3>Dark Indigo Denim Vest</h3>
-                        <p class="price">Rp 180.000</p>
-                        <button class="buy-btn" onclick="selectProduct('Dark Indigo Denim Vest', 180000)">Beli Sekarang</button>
-                    </div>
-                </div>
+        <!-- KERANJANG -->
+        <section class="page" id="cart">
+            <div class="page-heading">
+                <span class="eyebrow">YOUR SELECTION</span>
+                <h1>Keranjang Belanja</h1>
+                <p>Periksa kembali produk pilihanmu sebelum checkout.</p>
+            </div>
+            <div class="cart-layout">
+                <div class="cart-items" id="cartItems"></div>
+                <aside class="summary-card" id="cartSummary"></aside>
             </div>
         </section>
 
-        <!-- ================= HALAMAN CHECKOUT ================= -->
-        <section id="checkout" class="page">
-            <div class="checkout-container">
-                <h2>Formulir Checkout Pesanan</h2>
-                <form id="orderForm" onsubmit="processCheckout(event)">
-                    <div class="form-group">
-                        <label for="productName">Produk Pilihan:</label>
-                        <input type="text" id="productName" readonly placeholder="Pilih produk dari katalog terlebih dahulu">
+        <!-- CHECKOUT -->
+        <section class="page" id="checkout">
+            <div class="page-heading">
+                <span class="eyebrow">ALMOST YOURS</span>
+                <h1>Checkout</h1>
+                <p>Lengkapi informasi pengiriman untuk membuat pesanan.</p>
+            </div>
+            <div class="checkout-layout">
+                <form class="form-card" id="checkoutForm">
+                    <h2>Informasi pelanggan</h2>
+                    <div class="form-grid">
+                        <label class="form-field full">
+                            Nama lengkap
+                            <input type="text" id="customerName" name="customerName" placeholder="Nama penerima" required minlength="2">
+                        </label>
+                        <label class="form-field">
+                            Nomor WhatsApp
+                            <input type="tel" id="customerPhone" name="customerPhone" placeholder="08xxxxxxxxxx" required pattern="[0-9+() -]{8,18}">
+                        </label>
+                        <label class="form-field">
+                            Email (opsional)
+                            <input type="email" id="customerEmail" name="customerEmail" placeholder="nama@email.com">
+                        </label>
+                        <label class="form-field full">
+                            Alamat lengkap
+                            <textarea id="customerAddress" name="customerAddress" rows="4" placeholder="Nama jalan, nomor rumah, desa/kelurahan, kecamatan, kota/kabupaten, kode pos" required minlength="10"></textarea>
+                        </label>
+                        <label class="form-field">
+                            Kota/Kabupaten
+                            <input type="text" id="customerCity" name="customerCity" placeholder="Contoh: Denpasar" required>
+                        </label>
+                        <label class="form-field">
+                            Metode pembayaran
+                            <select id="paymentMethod" name="paymentMethod" required>
+                                <option value="Transfer Bank (simulasi)">Transfer Bank (simulasi)</option>
+                                <option value="COD (simulasi)">COD (simulasi)</option>
+                                <option value="QRIS (simulasi)">QRIS (simulasi)</option>
+                            </select>
+                        </label>
+                        <label class="form-field full">
+                            Catatan pesanan (opsional)
+                            <textarea id="orderNote" name="orderNote" rows="2" placeholder="Catatan tambahan untuk pesananmu"></textarea>
+                        </label>
                     </div>
-                    <div class="form-group">
-                        <label for="custName">Nama Lengkap:</label>
-                        <input type="text" id="custName" placeholder="Masukkan nama Anda">
-                    </div>
-                    <div class="form-group">
-                        <label for="custAddress">Alamat Pengiriman:</label>
-                        <textarea id="custAddress" rows="3" placeholder="Masukkan alamat lengkap tujuan pengiriman"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Proses Pesanan</button>
+                    <p class="demo-notice">Ini adalah checkout demo. Tidak ada pembayaran atau pengiriman sungguhan yang diproses.</p>
+                    <button class="button button-primary button-full" type="submit" id="submitOrder">Buat Pesanan</button>
                 </form>
-                <div id="notification" class="hidden"></div>
+                <aside class="summary-card" id="checkoutSummary"></aside>
             </div>
+        </section>
+
+        <!-- RIWAYAT PESANAN -->
+        <section class="page" id="orders">
+            <div class="page-heading">
+                <span class="eyebrow">ORDER HISTORY</span>
+                <h1>Riwayat Pesanan</h1>
+                <p>Daftar pesanan demo yang tersimpan di browser ini.</p>
+            </div>
+            <div id="orderHistory" class="order-history"></div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 Denim & Co. - Crafted with Quality in Bali</p>
-            <div class="social-links">
-                <a href="#">Instagram</a> | <a href="#">TikTok</a>
-            </div>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a href="#" class="brand footer-brand" data-page="home">DENIM <span>&amp; CO.</span></a>
+            <p>Modern denim &amp; streetwear. Crafted with style in Bali.</p>
+            <p class="copyright">© <span id="currentYear"></span> Denim &amp; Co. All rights reserved.</p>
         </div>
     </footer>
 
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
 </body>
 </html>
